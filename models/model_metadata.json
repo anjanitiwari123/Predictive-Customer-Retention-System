@@ -1,0 +1,64 @@
+{
+  "model_name": "Logistic Regression",
+  "model_family_note": "Selected over Decision Tree, Random Forest, XGBoost(or HistGB fallback), Gradient Boosting via CV roc_auc/f1 + stability + simplicity",
+  "selected_threshold": 0.55,
+  "target_name": "Churn",
+  "positive_class": "Churn=Yes (1)",
+  "numerical_features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges"
+  ],
+  "categorical_features": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ],
+  "engineered_features_tested_but_rejected": [
+    "ServiceCount",
+    "AvgMonthlySpend",
+    "SecuritySupport",
+    "TenureGroup",
+    "LongTermContract"
+  ],
+  "imbalance_strategy": "SMOTE (train-fold only)",
+  "hyperparameters": {
+    "C": 14.5282,
+    "penalty": "l1",
+    "solver": "liblinear"
+  },
+  "random_state": 42,
+  "test_metrics": {
+    "accuracy": 0.751596877217885,
+    "precision": 0.5229007633587787,
+    "recall": 0.732620320855615,
+    "f1": 0.6102449888641426,
+    "roc_auc": 0.839347438580175
+  },
+  "cv_metrics_training_data": {
+    "roc_auc_mean": 0.8447848151794363,
+    "roc_auc_std": 0.013197061549618954,
+    "f1_mean": 0.6299696095731174,
+    "f1_std": 0.021797405195316318
+  },
+  "train_test_split": {
+    "test_size": 0.2,
+    "stratify": true
+  },
+  "xgboost_used_in_experiments": true,
+  "shap_used_in_experiments": true,
+  "imblearn_used_in_experiments": true
+}
